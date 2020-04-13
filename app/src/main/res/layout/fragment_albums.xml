@@ -44,13 +44,6 @@
                 android:clipToPadding="false"
                 android:padding="@dimen/spacing_small"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-            <ProgressBar
-                android:id="@+id/albums_progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone" />
         </FrameLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

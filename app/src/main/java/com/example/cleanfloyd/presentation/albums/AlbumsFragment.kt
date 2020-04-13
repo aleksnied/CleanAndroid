@@ -49,7 +49,7 @@ class AlbumsFragment : DaggerFragment() {
 
     viewModel.loading.observe(viewLifecycleOwner, Observer {
       it?.let { loading ->
-        albums_progress_bar.visibility = if (loading) View.VISIBLE else View.GONE
+        albums_refresh.isRefreshing = loading
       }
     })
 
@@ -71,7 +71,6 @@ class AlbumsFragment : DaggerFragment() {
     })
 
     albums_recycler_view.adapter = adapter
-
 //    albums_recycler_view.addOnScrollListener(object : PaginationScrollListener(
 //        albums_recycler_view.layoutManager as LinearLayoutManager) {
 //

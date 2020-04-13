@@ -26,8 +26,12 @@ class NetworkModule {
     rxJava2CallAdapterFactory: RxJava2CallAdapterFactory,
     okHttpClient: OkHttpClient
   ): Retrofit {
-    return Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(moshiConverterFactory)
-        .addCallAdapterFactory(rxJava2CallAdapterFactory).client(okHttpClient).build()
+    return Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(moshiConverterFactory)
+        .addCallAdapterFactory(rxJava2CallAdapterFactory)
+        .client(okHttpClient)
+        .build()
   }
 
   @Provides
@@ -43,8 +47,8 @@ class NetworkModule {
     interceptor.level = HttpLoggingInterceptor.Level.BODY
     val client = OkHttpClient.Builder()
         .cache(mCache)
-        .connectTimeout(60, TimeUnit.SECONDS).writeTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS)
         .addInterceptor(interceptor).addInterceptor { chain ->
           var request = chain.request()
           request =

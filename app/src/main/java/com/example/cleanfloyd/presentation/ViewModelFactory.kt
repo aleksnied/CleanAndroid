@@ -1,4 +1,4 @@
-package com.example.cleanfloyd.presentation.albums
+package com.example.cleanfloyd.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

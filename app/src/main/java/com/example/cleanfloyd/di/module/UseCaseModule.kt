@@ -9,10 +9,9 @@ import javax.inject.Singleton
 
 @Module(includes = [ApplicationModule::class, NetworkModule::class])
 class UseCaseModule {
-    @Provides
-    @Singleton
-    fun providesGetAlbumsUseCase(
-        repository: AlbumsRepository,
-        schedulerProvider: SchedulerProvider
-    ): GetAlbumsUseCase = GetAlbumsUseCase(repository, schedulerProvider)
+  @Provides
+  @Singleton
+  fun providesGetAlbumsUseCase(
+    repository: AlbumsRepository, schedulerProvider: SchedulerProvider
+  ): GetAlbumsUseCase = GetAlbumsUseCase(repository, schedulerProvider)
 }
