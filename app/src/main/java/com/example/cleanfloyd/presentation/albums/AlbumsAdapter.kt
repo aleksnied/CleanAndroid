@@ -23,8 +23,9 @@ internal class AlbumsAdapter() : RecyclerView.Adapter<AlbumsAdapter.ViewHolder>(
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    return ViewHolder(LayoutInflater.from(parent.context)
-        .inflate(R.layout.element_albums_list_item, parent, false))
+    return ViewHolder(
+      LayoutInflater.from(parent.context).inflate(R.layout.element_albums_list_item, parent, false)
+    )
   }
 
   override fun getItemCount(): Int = albums.size
@@ -35,8 +36,6 @@ internal class AlbumsAdapter() : RecyclerView.Adapter<AlbumsAdapter.ViewHolder>(
 
   inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(album: Album) {
-      Picasso
-//      Picasso.get().load(offer.backgroundImageXhdpi).into(offer_image)
       itemView.title.text = album.title
     }
   }
