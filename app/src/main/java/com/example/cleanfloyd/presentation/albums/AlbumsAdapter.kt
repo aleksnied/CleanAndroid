@@ -35,6 +35,8 @@ internal class AlbumsAdapter() : RecyclerView.Adapter<AlbumsAdapter.ViewHolder>(
 
   inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(album: Album) {
+      Picasso
+//      Picasso.get().load(offer.backgroundImageXhdpi).into(offer_image)
       itemView.title.text = album.title
     }
   }
