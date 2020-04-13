@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">CleanFloyd</string>
+  <string name="label_no_albums">No albums found!</string>
+  <string name="label_error">Failed to fetch albums, please pull to refresh.</string>
+</resources>
