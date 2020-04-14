@@ -44,6 +44,7 @@ class AlbumsFragment : DaggerFragment() {
 
     albums_refresh.setOnRefreshListener {
       adapter?.clear()
+      viewModel.currentPage = 1
       viewModel.loadAlbums()
     }
 
