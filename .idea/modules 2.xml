@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CleanFloyd.iml" filepath="$PROJECT_DIR$/CleanFloyd.iml" group="CleanFloyd" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="CleanFloyd/app" />
+    </modules>
+  </component>
+</project>

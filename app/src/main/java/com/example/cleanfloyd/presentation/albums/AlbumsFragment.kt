@@ -71,17 +71,17 @@ class AlbumsFragment : DaggerFragment() {
     })
 
     albums_recycler_view.adapter = adapter
-//    albums_recycler_view.addOnScrollListener(object : PaginationScrollListener(
-//        albums_recycler_view.layoutManager as LinearLayoutManager) {
-//
-//      override fun isLoading(): Boolean {
-//        return viewModel.loading.value ?: false
-//      }
-//
-//      override fun loadMoreItems() {
-//        viewModel.loadAlbums()
-//      }
-//    })
+    albums_recycler_view.addOnScrollListener(object : PaginationScrollListener(
+        albums_recycler_view.layoutManager as LinearLayoutManager) {
+
+      override fun isLoading(): Boolean {
+        return viewModel.loading.value ?: false
+      }
+
+      override fun loadMoreItems() {
+        viewModel.loadAlbums()
+      }
+    })
   }
 
   override fun onDetach() {

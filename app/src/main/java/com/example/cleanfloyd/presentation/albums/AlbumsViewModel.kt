@@ -11,6 +11,7 @@ class AlbumsViewModel @Inject constructor(private val getAlbumUseCase: GetAlbums
   val empty = MutableLiveData<Boolean>()
   val error = MutableLiveData<Throwable>()
   val albums = MutableLiveData<List<Album>>()
+  var currentPage = 1
 
   init {
     loading.value = false
@@ -20,11 +21,13 @@ class AlbumsViewModel @Inject constructor(private val getAlbumUseCase: GetAlbums
 
   fun loadAlbums() {
     loading.value = true
+    getAlbumUseCase.currentPage = currentPage
     getAlbumUseCase.execute(onOnSuccess = {
       loading.value = false
-      albums.value = it
-      empty.value = it.isEmpty()
+      albums.value = it.first
+      empty.value = it.first.isEmpty()
       error.value = null
+      currentPage = it.second
     }, onOnError = {
       loading.value = false
       empty.value = false

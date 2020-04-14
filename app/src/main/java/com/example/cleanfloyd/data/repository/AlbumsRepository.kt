@@ -7,7 +7,7 @@ import java.util.*
 
 class AlbumsRepository(private val albumsService: AlbumsService) {
 
-  fun getAlbums(page: Int = 1): Single<List<Album>> {
+  fun getAlbums(page: Int = 1): Single<Pair<List<Album>, Int>> {
     var totalAlbums = 0
     var currentPage = page
     return Single.create<Int> {
@@ -24,8 +24,10 @@ class AlbumsRepository(private val albumsService: AlbumsService) {
       currentPage += 1
       Single.just(albums)
     }.repeatUntil { totalAlbums >= 20 || currentPage == (page + 5) }
-        .collectInto(mutableListOf(), { collected, next ->
+        .collectInto(mutableListOf(), { collected: List<Album>, next ->
           (collected as MutableList).addAll(next)
-    })
+    }).map { albums: List<Album> ->
+        Pair(albums, currentPage)
+      }
   }
 }

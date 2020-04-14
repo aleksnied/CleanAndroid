@@ -7,9 +7,11 @@ import com.example.cleanfloyd.schedulers.SchedulerProvider
 import io.reactivex.Single
 import javax.inject.Inject
 
-class GetAlbumsUseCase @Inject constructor(private val repository: AlbumsRepository, scheduler: SchedulerProvider) : SingleUseCase<List<Album>>(scheduler) {
+class GetAlbumsUseCase @Inject constructor(private val repository: AlbumsRepository, scheduler: SchedulerProvider) : SingleUseCase<Pair<List<Album>, Int>>(scheduler) {
 
-  override fun buildUseCaseSingle(): Single<List<Album>> {
-    return repository.getAlbums()
+  public var currentPage = 1
+
+  override fun buildUseCaseSingle(): Single<Pair<List<Album>, Int>> {
+    return repository.getAlbums(currentPage)
   }
 }
